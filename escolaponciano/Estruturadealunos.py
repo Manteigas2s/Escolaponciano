@@ -99,17 +99,21 @@ def cadastro_alunos():
     alunos.append(novo_aluno)
     print(f"\n  Aluno '{nome}' cadastrado! Matrícula: {ultima_matricula}\n")
 
+    # Ver alunos geral
+
 def ver_alunos():
     print("LISTA DE ALUNOS")
     contador = 1
     for aluno in alunos:
         print(f"{contador}. {aluno['nome']} - {aluno['cpf']}- {aluno['idade']}- {aluno['matricula']}")
         contador += 1
+    
+    # Escolhendo alunos especificos 
 
 def escolher_alunos():
     while True:
         try:
-            num = int(input("Digite o número do aluno: ")).strip()
+            num = int(input("Digite o número do aluno: ").strip())
 
             if num <1 or num > len(alunos):
                 print("DIGITE UM NÚMERO VÁLIDO")
@@ -118,8 +122,9 @@ def escolher_alunos():
                 print("ALUNO ENCONTRADO!")
                 return num
         except:
-
             print("DIGITE APENAS NÚMEROS")
+    
+    # Alterando alunos
 
 def alterar_alunos():
     ver_alunos()
@@ -163,6 +168,8 @@ def alterar_alunos():
     Matricula: {alunos_escolhido['matricula']}
           """)
 
+    # Removendo os alunos
+
 def remover_alunos():
 
     ver_alunos()
@@ -172,6 +179,8 @@ def remover_alunos():
     aluno_removido = alunos.pop(num_alunos-1)
 
     print(f"{aluno_removido["nome"]} foi expulso!")
+
+    # Ver a situação dos alunos
 
 def ver_situacao_alunos():
     while True:
@@ -212,6 +221,8 @@ def ver_situacao_alunos():
                 print(f"{contador}. {aluno['nome']} - {aluno['cpf']}- {aluno['idade']}- {aluno['matricula']}- {aluno['situacao']}")
                 contador += 1
 
+    # Ver matriculas dos alunos
+    
 def ver_aluno_matricula():
         ver_alunos()
         matricula = input("Digite a matrícula do aluno: ")
